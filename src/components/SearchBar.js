@@ -4,14 +4,20 @@ class SearchBar extends Component {
   //   onInputChange(e) {
   //     console.log(e.target.value);
   //   }
+  state = { term: "Image" };
+  // use constructor
   onFormSubmit(event) {
     event.preventDefault();
+    console.log(this.state.term);
   }
-  state = { term: "Image" };
+
   render() {
     return (
       <div className="io segment">
-        <form className="ui form" onSubmit={this.onFormSubmit}>
+        <form
+          className="ui form"
+          onSubmit={(event) => this.onFormSubmit(event)}
+        >
           <div className="field">
             <label>Image Search</label>
             <input
@@ -26,6 +32,7 @@ class SearchBar extends Component {
               type="text"
               onChange={(event) => console.log(event.target.value)}
             /> */}
+            <p>{this.state.term}</p>
           </div>
         </form>
       </div>
